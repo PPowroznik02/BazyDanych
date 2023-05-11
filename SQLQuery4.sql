@@ -1,7 +1,3 @@
-﻿SELECT * FROM HumanResources.Employee
-SELECT * FROM Sales.SalesPerson
-SELECT * FROM SalesLT.Customer
-
 --1. Wykorzystując wyrażenie CTE zbuduj zapytanie, które znajdzie informacje na temat stawki
 --pracownika oraz jego danych, a następnie zapisze je do tabeli tymczasowej
 --TempEmployeeInfo. Rozwiąż w oparciu o AdventureWorks.
@@ -29,7 +25,9 @@ AS(
 )
 SELECT * FROM TmpRevenueInfo ORDER BY CompanyContact
 
---3. Napisz zapytanie, które zwróci wartość sprzedaży dla poszczególnych kategorii produktów.--Wykorzystaj CTE i bazę AdventureWorksLT.
+--3. Napisz zapytanie, które zwróci wartość sprzedaży dla poszczególnych kategorii produktów.
+--Wykorzystaj CTE i bazę AdventureWorksLT.
+
 WITH TmpProductSaleValue
 AS(
 	SELECT pc.Name AS Category, ROUND(sod.UnitPrice * sod.OrderQty, 2) AS SalesValue
